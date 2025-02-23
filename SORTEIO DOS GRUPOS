@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Sorteio de Grupos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://source.unsplash.com/1600x900/?futsal,basketball,volleyball,handball');
+            background-size: cover;
+            background-position: center;
+        }
+        #container {
+            text-align: center;
+        }
+        #resultado {
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+            font-weight: bold;
+            color: white;
+            background-image: url('https://cdn.pixabay.com/photo/2016/03/27/19/36/football-1284506_960_720.jpg');
+            background-size: cover;
+            background-position: center;
+            border: 5px solid black;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="resultado">?</div>
+        <button onclick="sortear()">Sortear Grupo</button>
+    </div>
+
+    <script>
+        let grupos = ['A1', 'A2', 'A3', 'A4', 'B1', 'B2', 'B3', 'B4', 'C1', 'C2', 'C3', 'C4', 'D1', 'D2', 'D3', 'D4'];
+
+        function sortear() {
+            if (grupos.length === 0) {
+                document.getElementById('resultado').textContent = 'Fim!';
+                return;
+            }
+            
+            let indiceAleatorio = Math.floor(Math.random() * grupos.length);
+            let grupoSorteado = grupos.splice(indiceAleatorio, 1)[0];
+            
+            document.getElementById('resultado').textContent = grupoSorteado;
+        }
+    </script>
+</body>
+</html>
